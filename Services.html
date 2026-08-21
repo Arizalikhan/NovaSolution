@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novatech Solution — Web Design & Development Studio</title>
+<meta name="description" content="Novatech Solution designs and builds websites, e-commerce stores, and web applications that load fast, rank well, and turn visitors into customers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(-20 16 16)' fill='none' stroke='%23991233' stroke-width='2.6'/%3E%3Ccircle cx='26.3' cy='9.6' r='3.1' fill='%23991233'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#30363C;
+    --ink-deep:#1A1E22;
+    --signal:#a50f35;
+    --signal-deep:#730D26;
+    --signal-tint:#F4E6E9;
+    --slate:#7A7C80;
+    --slate-light:#AFB1B4;
+    --paper:#FAF9F7;
+    --paper-dim:#F1EEEA;
+    --white:#FFFFFF;
+    --line:rgba(48,54,60,0.12);
+    --line-dark:rgba(255,255,255,0.14);
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+    --container:1180px;
+    --section-pad:clamp(4.5rem,8vw,7.5rem);
+    --side-pad:clamp(1.25rem,5vw,3rem);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;height:auto;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--container);margin:0 auto;padding-left:var(--side-pad);padding-right:var(--side-pad);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    display:flex;
+    align-items:center;
+    gap:0.55rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;
+    background:var(--signal);
+    display:inline-block;
+    border-radius:1px;
+  }
+  h1,h2,h3,h4{font-family:var(--font-display);color:var(--ink-deep);font-weight:600;letter-spacing:-0.01em;}
+  :focus-visible{outline:2px solid var(--signal);outline-offset:3px;}
+
+  .container{
+    max-width:var(--container);
+    margin:0 auto;
+    padding-inline:var(--side-pad);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+    padding:.85rem 1.6rem;
+    border-radius:3px;
+    font-weight:600;
+    font-size:.92rem;
+    border:1.5px solid transparent;
+    transition:transform .15s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--signal);
+    color:#fff;
+  }
+  .btn-primary:hover{background:var(--signal-deep); transform:translateY(-1px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--ink); transform:translateY(-1px);}
+  .btn-ghost.on-dark{color:#fff; border-color:var(--line-dark);}
+  .btn-ghost.on-dark:hover{border-color:#fff;}
+  .btn-outline-light{
+    background:transparent;
+    color:#fff;
+    border-color:rgba(255,255,255,0.55);
+  }
+  .btn-outline-light:hover{
+    background:#fff;
+    color:var(--signal);
+    border-color:#fff;
+    transform:translateY(-1px);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink-deep);color:var(--slate-light);border-top:1px solid var(--line-dark);}
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.3fr .8fr .8fr 1fr;
+    gap:2.5rem;
+    padding-block:clamp(3rem,6vw,4.5rem);
+  }
+  .footer-brand .brand-word .novatech{color:#fff;}
+  .footer-brand p{margin-top:1.1rem;color:var(--slate);font-size:.92rem;max-width:34ch;}
+  .footer-col h5{
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:1.1rem;
+  }
+  .footer-col ul{display:flex;flex-direction:column;gap:.7rem;}
+  .footer-col a{font-size:.92rem;color:var(--slate-light);}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{
+    border-top:1px solid var(--line-dark);
+    padding-block:1.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1rem;
+    font-size:.82rem;
+    color:var(--slate);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,249,247,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:78px;
+  }
+  .brand{display:flex;align-items:center;gap:.65rem;}
+  .brand-logo{height:38px;width:auto;display:block;}
+  .footer-logo-wrap{
+    display:inline-flex;
+    align-items:center;
+    background:#fff;
+    padding:.65rem 1.1rem;
+    border-radius:6px;
+    width:fit-content;
+  }
+  .footer-logo-wrap .brand-logo{height:30px;}
+  .brand-word{display:flex;flex-direction:column;line-height:1;}
+  .brand-word .novatech{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1rem;
+    color:var(--ink);
+    letter-spacing:.02em;
+  }
+  .brand-word .solution{
+    font-family:var(--font-mono);
+    font-weight:500;
+    font-size:.6rem;
+    color:var(--slate);
+    letter-spacing:.24em;
+    margin-top:.2rem;
+  }
+
+  nav.primary-links{display:flex;align-items:center;gap:2.1rem;}
+  nav.primary-links a{
+    font-size:.93rem;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+    padding:.3rem 0;
+  }
+  nav.primary-links a::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:-2px;
+    height:2px;
+    background:var(--signal);
+    transform:scaleX(0);
+    transform-origin:right;
+    transition:transform .25s ease;
+  }
+  nav.primary-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+
+  .nav-right{display:flex;align-items:center;gap:1.6rem;}
+  .nav-cta{display:inline-flex;}
+
+  .burger{
+    display:none;
+    width:38px;height:38px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:transparent;
+    align-items:center;justify-content:center;
+    flex-direction:column;
+    gap:5px;
+  }
+  .burger span{width:16px;height:1.6px;background:var(--ink);transition:transform .25s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(6.6px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg);}
+
+  .mobile-panel{
+    display:none;
+    position:absolute;
+    top:78px;left:0;right:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:1.5rem var(--side-pad) 2rem;
+    flex-direction:column;
+    gap:1.1rem;
+  }
+  .mobile-panel a{font-size:1rem;font-weight:500;}
+  .mobile-panel.open{display:flex;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:clamp(3.5rem,7vw,5.5rem);
+    padding-bottom:var(--section-pad);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:640px;
+    gap:3.5rem;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,4.4vw,3.7rem);
+    line-height:1.08;
+    margin-top:1.1rem;
+    margin-bottom:1.4rem;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--signal);
+  }
+  .hero p.lead{
+    font-size:1.08rem;color:var(--slate);
+    max-width:34rem;margin-bottom:2.1rem;
+  }
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+
+  /* manifest card — signature element */
+  .manifest{
+    background:var(--ink-deep);
+    color:var(--paper);
+    border-radius:4px;
+    padding:1.8rem 1.7rem 1.6rem;
+    position:relative;
+    font-family:var(--font-mono);
+    box-shadow:0 30px 60px -25px rgba(26,30,34,0.45);
+    transform:rotate(1.2deg);
+  }
+  .manifest::before{
+    content:"";
+    position:absolute;inset:10px;
+    border:1px solid var(--line-dark);
+    border-radius:2px;
+    pointer-events:none;
+  }
+  .manifest-head{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--slate-light);
+    padding-bottom:0.9rem;margin-bottom:0.9rem;
+    border-bottom:1px dashed var(--line-dark);
+  }
+  .manifest-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:0.85rem;padding:0.55rem 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .manifest-row:last-of-type{border-bottom:none;}
+  .manifest-row span:first-child{color:var(--slate-light);}
+  .manifest-row .done{color:#8FD19E;}
+  .manifest-row .active{color:var(--signal);}
+  .manifest-stamp{
+    margin-top:1.3rem;
+    display:inline-flex;align-items:center;gap:0.5rem;
+    border:1px solid var(--signal);
+    color:var(--signal);
+    padding:0.35rem 0.7rem;
+    font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;
+    border-radius:2px;
+    transform:rotate(-2deg);
+  }
+
+  /* ---------- STAT BAR ---------- */
+  .statbar{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--paper-dim);
+  }
+  .statbar .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding-top:2.1rem;padding-bottom:2.1rem;
+  }
+  .stat{text-align:center;border-right:1px solid var(--line);padding:0 0.5rem;}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:var(--font-mono);font-size:1.9rem;color:var(--signal);font-weight:600;}
+  .stat .label{font-size:0.78rem;color:var(--slate);margin-top:0.25rem;}
+
+  /* ---------- SECTION HEAD ---------- */
+  section{padding-top:var(--section-pad);padding-bottom:var(--section-pad);}
+  .sec-head{max-width:38rem;margin-bottom:3.2rem;}
+  .sec-head h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-top:0.8rem;}
+  .sec-head p{color:var(--slate);margin-top:0.9rem;font-size:1.02rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:2rem 2rem 1.8rem;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .service-card:hover{border-color:var(--signal);transform:translateY(-4px);}
+  .service-card .idx{
+    font-family:var(--font-mono);font-size:0.75rem;color:var(--signal);
+    display:block;margin-bottom:1rem;
+  }
+  .service-card h3{font-size:1.2rem;margin-bottom:0.65rem;}
+  .service-card p.summary{color:var(--ink);font-size:0.97rem;margin-bottom:1.2rem;}
+  .service-card ul.detail{border-top:1px solid var(--line);padding-top:1rem;}
+  .service-card ul.detail li{
+    font-size:0.87rem;color:var(--slate);
+    padding:0.4rem 0;
+    display:flex;gap:0.6rem;
+  }
+  .service-card ul.detail li::before{content:"—";color:var(--signal);flex-shrink:0;}
+
+  /* ---------- PROCESS ---------- */
+  .process-wrap{background:var(--paper-dim);;color:var(--paper);}
+  .process-wrap .eyebrow{color:#e63259;}
+  .process-wrap .eyebrow::before{background:#dd2a51;}
+  .process-wrap .sec-head h2{color:var(--ink-deep);}
+  .process-wrap .sec-head p{color:var(--ink-deep);}
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;border-top:1px solid var(--line-dark);
+    align-items:start;
+  }
+  .step{
+    display:flex;flex-direction:column;
+    height:100%;
+    padding:2rem 1.75rem 2rem;
+    border-right:1px solid var(--line-dark);
+  }
+  .step:first-child{padding-left:0;}
+  .step:last-child{border-right:none;padding-right:0;}
+  .step .step-num{
+    font-family:var(--font-mono);color:var(--signal);
+    font-size:0.85rem;display:block;margin-bottom:1.2rem;
+  }
+  .step h3{color:var(--ink-deep);font-size:1.05rem;margin-bottom:0.55rem;}
+  .step p{color:var(--ink);font-size:0.88rem;flex-grow:1;}
+
+  /* ---------- PACKAGES ---------- */
+  .pkg-toggle-note{
+    font-family:var(--font-mono);font-size:0.78rem;color:var(--slate);
+    margin-top:-1.8rem;margin-bottom:2.5rem;
+  }
+  .packages-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+    align-items:stretch;
+  }
+  .pkg{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:2.1rem 1.9rem;
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .pkg.featured{
+    background:var(--ink);
+    border-color:var(--ink-deep);
+    transform:translateY(-0.6rem);
+    box-shadow:0 30px 55px -25px rgba(26,30,34,0.4);
+  }
+  .pkg.featured *{color:var(--paper);}
+  .pkg-tag{
+    position:absolute;top:-0.75rem;right:1.6rem;
+    background:var(--signal);color:var(--paper);
+    font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;
+    padding:0.32rem 0.65rem;border-radius:2px;
+  }
+  .pkg-name{font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--signal);}
+  .pkg.featured .pkg-name{color:#E8A6B4;}
+  .pkg-price{font-family:var(--font-display);font-size:2.3rem;font-weight:700;margin-top:0.6rem;color:var(--ink-deep);}
+  .pkg-price sup{font-size:1rem;font-weight:500;margin-right:0.2rem;}
+  .pkg-price span{font-family:var(--font-mono);font-size:0.85rem;color:var(--slate);font-weight:400;}
+  .pkg.featured .pkg-price{color:var(--paper);}
+  .pkg-desc{color:var(--slate);font-size:0.88rem;margin-top:0.6rem;margin-bottom:1.6rem;}
+  .pkg.featured .pkg-desc{color:var(--slate-light);}
+  .pkg-features{margin-bottom:2rem;flex-grow:1;}
+  .pkg-features li{
+    font-size:0.9rem;padding:0.55rem 0;
+    border-top:1px solid var(--line);
+    display:flex;gap:0.6rem;
+  }
+  .pkg.featured .pkg-features li{border-top:1px solid var(--line-dark);}
+  .pkg-features li:first-child{border-top:none;}
+  .pkg-features li::before{content:"—";color:var(--signal);flex-shrink:0;}
+  .pkg .btn{width:100%;justify-content:center;}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--signal);
+    color:var(--paper);
+    text-align:center;
+  }
+  .cta-banner h2{color:var(--paper);font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:1rem;}
+  .cta-banner p{color:var(--signal-tint);max-width:32rem;margin:0 auto 2.2rem;}
+  .cta-banner .btn{border-color:var(--paper);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink-deep);color:var(--slate-light);padding-top:3.5rem;padding-bottom:2rem;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2rem;
+    padding-bottom:2.5rem;border-bottom:1px solid var(--line-dark);
+  }
+  .footer-grid h4{color:var(--paper);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--font-mono);}
+  .footer-grid p{font-size:0.9rem;max-width:20rem;color:var(--slate-light);}
+  .footer-grid li{font-size:0.9rem;padding:0.3rem 0;}
+  .footer-grid li a:hover{color:var(--paper);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:1.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--slate);
+  }
+
+  
+
+  @media (max-width:880px){
+    nav.primary-links{display:none;}
+    .nav-cta{display:none;}
+    .burger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-grid > div{text-align:center;}
+    .hero-grid .eyebrow{justify-content:center;}
+    .hero-ctas{justify-content:center;}
+    .manifest{transform:none;}
+    .services-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .step{border-right:none;padding:1.75rem 0 1.75rem;border-bottom:1px solid var(--line-dark);}
+    .step:nth-child(odd){padding-right:1.5rem;}
+    .step:nth-child(even){padding-left:1.5rem;}
+    .step:nth-last-child(-n+2){border-bottom:none;}
+    .packages-grid{grid-template-columns:1fr;}
+    .pkg.featured{transform:none;}
+    .statbar .wrap{grid-template-columns:1fr 1fr;row-gap:1.5rem;}
+    .stat:nth-child(2){border-right:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- SMALL PHONES ---------- */
+  @media (max-width:600px){
+    :root{--section-pad:clamp(3rem,12vw,4.5rem);}
+    .brand-logo{height:28px;}
+    .hero-ctas{flex-direction:column;align-items:stretch;}
+    .hero-ctas .btn{width:100%;justify-content:center;}
+    .manifest{padding:1.4rem 1.3rem 1.3rem;}
+    .manifest-row{font-size:0.8rem;}
+    .statbar .wrap{grid-template-columns:1fr 1fr;gap:1.25rem;}
+    .stat .num{font-size:1.5rem;}
+    .service-card{padding:1.5rem 1.4rem 1.4rem;}
+    .steps{grid-template-columns:1fr;}
+    .step{padding:1.5rem 0 !important;border-right:none !important;}
+    .step:nth-last-child(-n+2){border-bottom:1px solid var(--line-dark);}
+    .step:last-child{border-bottom:none;}
+    .pkg{padding:1.75rem 1.5rem;}
+    .pkg.featured{transform:none;}
+    .footer-grid{grid-template-columns:1fr;gap:2rem;}
+    .footer-bottom{flex-direction:column;gap:0.75rem;align-items:flex-start;}
+    .cta-banner .btn{width:100%;justify-content:center;}
+  }
+
+  @media (max-width:420px){
+    .statbar .wrap{grid-template-columns:1fr;}
+    .stat{border-right:none !important;padding:0.5rem 0;border-bottom:1px solid var(--line);}
+    .stat:last-child{border-bottom:none;}
+    .hero h1{font-size:1.9rem;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto !important;}
+  }
+
+  /* ---------- WhatsApp floating button ---------- */
+  .whatsapp-float{
+    position:fixed;
+    right:1.5rem;
+    bottom:1.5rem;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    display:grid;
+    place-items:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    z-index:999;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .whatsapp-float:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 26px rgba(0,0,0,.3);
+  }
+  .whatsapp-float svg{width:30px;height:30px;display:block;}
+  @media (max-width:600px){
+    .whatsapp-float{right:1rem;bottom:1rem;width:52px;height:52px;}
+    .whatsapp-float svg{width:26px;height:26px;}
+  }
+
+  @media (max-width:980px){
+    .footer-top{grid-template-columns:1fr 1fr;}
+    .nav-row{height:70px;}
+  }
+  @media (max-width:760px){
+    .footer-top{grid-template-columns:1fr 1fr; row-gap:2.5rem;}
+  }
+  @media (max-width:480px){
+    .footer-top{grid-template-columns:1fr; text-align:left;}
+    .footer-bottom{flex-direction:column; text-align:center;}
+  }
+
+</style>
+<style id="nt-motion">
+/* =========================================================
+   NovaTech — motion layer (entrance, scroll-reveal, hovers)
+   Purely additive: no layout/content changes.
+   ========================================================= */
+
+@keyframes nt-fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes nt-fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes nt-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+@keyframes nt-ring{0%{transform:scale(.85);opacity:.5;}75%,100%{transform:scale(1.75);opacity:0;}}
+@keyframes nt-pop{0%{opacity:0;transform:scale(.82);}70%{opacity:1;transform:scale(1.04);}100%{opacity:1;transform:scale(1);}}
+@keyframes nt-dot{0%,100%{opacity:1;}50%{opacity:.4;}}
+@keyframes nt-shine{0%{background-position:160% 0;}100%{background-position:-60% 0;}}
+@keyframes nt-orbitDrift{0%,100%{transform:translate(-50%,-52%) translateY(0);}50%{transform:translate(-50%,-52%) translateY(-10px);}}
+
+/* ---- Header: settle in on load ---- */
+header{animation:nt-fadeIn .5s ease both;}
+header.nt-scrolled{box-shadow:0 10px 30px -18px rgba(26,30,34,.28);}
+
+/* ---- Logo: playful hover ---- */
+.brand-logo{transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+.brand:hover .brand-logo, .footer-logo-wrap:hover .brand-logo{transform:scale(1.08) rotate(-4deg);}
+
+/* ---- Nav CTA / links already animate underline; add subtle lift ---- */
+.nav-cta.btn{transition:transform .2s ease, background-color .2s ease, box-shadow .25s ease;}
+
+/* ---- Above-the-fold hero: staggered entrance on load ---- */
+.hero:not(.reveal) > .hero-grid > *,
+.hero-grid:not(.reveal) > *,
+.hero-grid > div > *{
+  opacity:0;
+  animation:nt-fadeUp .85s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-grid > div > *:nth-child(1){animation-delay:.05s;}
+.hero-grid > div > *:nth-child(2){animation-delay:.17s;}
+.hero-grid > div > *:nth-child(3){animation-delay:.29s;}
+.hero-grid > div > *:nth-child(4){animation-delay:.41s;}
+
+/* ---- Scroll reveal base (smoother, slightly springier) ---- */
+.reveal{opacity:0; transform:translateY(20px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.is-visible{opacity:1; transform:translateY(0);}
+
+/* ---- Staggered children inside revealed grids / lists ---- */
+.services-grid.reveal > *,
+.packages-grid.reveal > *,
+.steps.reveal > *{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
+}
+.services-grid.reveal.is-visible > *,
+.packages-grid.reveal.is-visible > *,
+.steps.reveal.is-visible > *{
+  opacity:1;
+  transform:translateY(0);
+}
+.services-grid.reveal.is-visible > *:nth-child(1),
+.packages-grid.reveal.is-visible > *:nth-child(1),
+.steps.reveal.is-visible > *:nth-child(1){transition-delay:0.035s;}
+.services-grid.reveal.is-visible > *:nth-child(2),
+.packages-grid.reveal.is-visible > *:nth-child(2),
+.steps.reveal.is-visible > *:nth-child(2){transition-delay:0.07s;}
+.services-grid.reveal.is-visible > *:nth-child(3),
+.packages-grid.reveal.is-visible > *:nth-child(3),
+.steps.reveal.is-visible > *:nth-child(3){transition-delay:0.105s;}
+.services-grid.reveal.is-visible > *:nth-child(4),
+.packages-grid.reveal.is-visible > *:nth-child(4),
+.steps.reveal.is-visible > *:nth-child(4){transition-delay:0.14s;}
+.services-grid.reveal.is-visible > *:nth-child(5),
+.packages-grid.reveal.is-visible > *:nth-child(5),
+.steps.reveal.is-visible > *:nth-child(5){transition-delay:0.175s;}
+.services-grid.reveal.is-visible > *:nth-child(6),
+.packages-grid.reveal.is-visible > *:nth-child(6),
+.steps.reveal.is-visible > *:nth-child(6){transition-delay:0.21s;}
+
+/* ---- Stat numbers: pop on reveal ---- */
+.statbar .wrap.reveal.is-visible .stat .num{
+  animation:nt-pop .6s cubic-bezier(.34,1.56,.64,1) both;
+}
+.statbar .wrap.reveal.is-visible .stat:nth-child(1) .num{animation-delay:.15s;}
+.statbar .wrap.reveal.is-visible .stat:nth-child(2) .num{animation-delay:.25s;}
+.statbar .wrap.reveal.is-visible .stat:nth-child(3) .num{animation-delay:.35s;}
+.statbar .wrap.reveal.is-visible .stat:nth-child(4) .num{animation-delay:.45s;}
+
+/* ---- Buttons: sheen sweep + lift ---- */
+.btn{position:relative; overflow:hidden; isolation:isolate;}
+.btn::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.4) 50%, transparent 60%);
+  background-size:250% 100%;
+  background-position:160% 0;
+  pointer-events:none;
+  z-index:1;
+}
+.btn:hover::after{animation:nt-shine .85s ease;}
+.btn-ghost::after, .btn-outline-light::after{background:linear-gradient(115deg, transparent 40%, rgba(153,18,51,.16) 50%, transparent 60%); background-size:250% 100%; background-position:160% 0;}
+
+/* ---- Cards: consistent lift + shadow on hover ---- */
+.step{
+  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, border-color .3s ease, background-color .3s ease;
+}
+.step:hover .step-num{color:var(--signal-deep);}
+
+.service-card{transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .3s ease, background-color .3s ease, box-shadow .35s ease;}
+.service-card:hover{transform:translateY(-4px); box-shadow:0 16px 34px -22px rgba(26,30,34,.25);}
+.service-card .idx{transition:color .3s ease;}
+.service-card:hover .idx{color:var(--signal-deep);}
+
+.pkg{transition:box-shadow .4s ease, border-color .3s ease, transform .4s cubic-bezier(.16,1,.3,1);}
+.pkg:hover{box-shadow:0 22px 46px -26px rgba(26,30,34,.28); border-color:var(--signal);}
+.pkg.featured:hover{box-shadow:0 34px 64px -26px rgba(26,30,34,.5);}
+.pkg-price{transition:transform .3s ease;}
+.pkg:hover .pkg-price{transform:scale(1.04);}
+
+/* ---- WhatsApp float: pulsing rings + gentle bob ---- */
+.whatsapp-float{animation:nt-float 4.5s ease-in-out infinite;}
+.whatsapp-float::before, .whatsapp-float::after{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  background:#25D366;
+  animation:nt-ring 2.6s cubic-bezier(.4,0,.6,1) infinite;
+  pointer-events:none;
+}
+.whatsapp-float::after{animation-delay:1.3s;}
+.whatsapp-float svg{position:relative; z-index:1;}
+
+/* ---- Eyebrow dot / marker: soft pulse ---- */
+.eyebrow::before{animation:nt-dot 2.4s ease-in-out infinite;}
+
+/* ---- Footer socials / links: tiny lift ---- */
+.footer-col a{display:inline-block; transition:transform .2s ease, color .2s ease;}
+.footer-col a:hover{transform:translateX(3px); color:var(--signal);}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  .reveal{opacity:1; transform:none;}
+}
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav-row">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="ChatGPT Image Aug 17, 2026, 01_29_35 AM.png" alt="">
+    </a>
+
+    <nav class="primary-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="Services.html">Services</a>
+      <a href="Portfolio.html">Portfolio</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="btn btn-primary nav-cta" href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0">Start a project</a>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="clients.html">Clients</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0" style="margin-top:.5rem;">Start a project</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Web Development Studio</span>
+      <h1>Your business deserves a website that <em>earns its keep.</em></h1>
+      <p class="lead">We design and build fast, secure, standards-based websites for businesses of every size — from first launch to ongoing care, all under one roof.</p>
+      <div class="hero-ctas">
+        <a href="#packages" class="btn btn-primary">View Packages</a>
+        <a href="contact.html" class="btn btn-ghost">Get a Free Quote</a>
+      </div>
+    </div>
+
+</section>
+
+<div class="statbar">
+  <div class="wrap reveal">
+    <div class="stat"><div class="num">120+</div><div class="label">Websites shipped</div></div>
+    <div class="stat"><div class="num">4–6</div><div class="label">Weeks to launch</div></div>
+    <div class="stat"><div class="num">98%</div><div class="label">Clients who return</div></div>
+    <div class="stat"><div class="num">24/7</div><div class="label">Support available</div></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>Everything a modern website needs, under one roof.</h2>
+      <p>Whether you're launching for the first time or rebuilding something outdated, we build for outcomes — not just appearances.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="idx">01</span>
+        <h3>Web Design</h3>
+        <p class="summary">Interfaces people enjoy using, built around your brand and your customer's path to "yes."</p>
+        <ul class="detail">
+          <li>Custom UI, not a recycled template</li>
+          <li>Conversion-minded layout and hierarchy</li>
+          <li>Brand-consistent typography, color, and imagery</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="idx">02</span>
+        <h3>Web Development</h3>
+        <p class="summary">Fast, secure, standards-based builds on modern frameworks — no bloated page-builders.</p>
+        <ul class="detail">
+          <li>Clean, maintainable code on modern frameworks</li>
+          <li>Built for security and long-term stability</li>
+          <li>No drag-and-drop bloat slowing you down</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="idx">03</span>
+        <h3>E-Commerce</h3>
+        <p class="summary">Storefronts that handle payments, inventory, and checkout without friction.</p>
+        <ul class="detail">
+          <li>Secure payment gateway integration</li>
+          <li>Real-time inventory and order management</li>
+          <li>Frictionless, mobile-optimized checkout</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="idx">04</span>
+        <h3>Web Applications</h3>
+        <p class="summary">Custom dashboards, portals, and internal tools built around how your team actually works.</p>
+        <ul class="detail">
+          <li>Custom dashboards and admin portals</li>
+          <li>Workflow-specific internal tools</li>
+          <li>Role-based access and permissions</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="idx">05</span>
+        <h3>SEO &amp; Performance</h3>
+        <p class="summary">Sites that rank, load in under two seconds, and pass Core Web Vitals.</p>
+        <ul class="detail">
+          <li>On-page and technical SEO foundation</li>
+          <li>Sub-2-second load times</li>
+          <li>Core Web Vitals compliance</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="idx">06</span>
+        <h3>Care &amp; Maintenance</h3>
+        <p class="summary">Ongoing updates, backups, and monitoring after launch, so the site stays fast and secure.</p>
+        <ul class="detail">
+          <li>Scheduled updates and security patches</li>
+          <li>Automated backups and uptime monitoring</li>
+          <li>Direct support line for fixes and changes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Packages</span>
+      <h2>Pick the package that matches where your business is today.</h2>
+      <p>All three packages include hosting setup and launch support. Need something different? We'll scope a custom package.</p>
+    </div>
+
+    <div class="packages-grid reveal">
+      <div class="pkg">
+        <span class="pkg-name">THE FRESH CUT</span>
+        <div class="pkg-price"><sup>$</sup>199</div>
+        <p class="pkg-desc">A sharp one-pager that puts your salon on the map.</p>
+        <ul class="pkg-features">
+          <li>1-page website, mobile responsive</li>
+          <li>Service menu with prices</li>
+          <li>Contact form + WhatsApp button</li>
+          <li>Free domain* + 1 year free hosting</li>
+          <li>Live in 5 days</li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0" class="btn btn-ghost">Start With $199</a>
+      </div>
+
+      <div class="pkg featured">
+        <span class="pkg-tag">Most Popular</span>
+        <span class="pkg-name">The Full Treatment</span>
+        <div class="pkg-price"><sup>$</sup>499</div>
+        <p class="pkg-desc">The full salon website — the one that books chairs while you cut.</p>
+        <ul class="pkg-features">
+          <li>Up to 5 pages, mobile responsive</li>
+          <li>Google Calendar booking built in</li>
+          <li>Service menu, stylist + gallery pages</li>
+          <li>Google Maps + reviews section</li>
+          <li>Contact form + WhatsApp integration</li>
+          <li>Free domain* + 1 year free hosting</li>
+          <li>Live in 7 days</li>
+        </ul>
+          <a href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0" class="btn btn-ghost" style="background: #1A1E22;">Book With $499</a>
+      </div>
+
+      <div class="pkg">
+        <span class="pkg-name">The Chair Filler</span>
+        <div class="pkg-price"><sup>$</sup>799</div>
+        <p class="pkg-desc">Everything in $499, plus the extras that make you the salon in town.</p>
+        <ul class="pkg-features">
+          <li>Everything in The Full Treatment</li>
+          <li>Up to 10 pages + done-for-you copywriting</li>
+          <li>Signature animations + custom touches</li>
+          <li>Local SEO setup (Google Business)</li>
+          <li>30 days priority support</li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0" class="btn btn-ghost">Book With $799</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="process-wrap" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our Process</span>
+      <h2>Four steps, in the same order, every time.</h2>
+      <p>Every project follows this sequence — no skipped steps, no surprises.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="step-num">01 / Discovery</span>
+        <h3>Understand</h3>
+        <p>We learn your business, your customers, and your goals before anything gets designed.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02 / Design</span>
+        <h3>Design</h3>
+        <p>Layout and look come together with your sign-off, before a single line of code is written.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03 / Development</span>
+        <h3>Development</h3>
+        <p>The design becomes a live site — fast, secure, and built to standards.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04 / Launch</span>
+        <h3>Launch</h3>
+        <p>We test, ship, and stay on to support the site after it goes live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-banner" id="contact">
+  <div class="wrap">
+    <h2>It's time to build the website your business deserves.</h2>
+    <p>Book a free consultation call — we'll review your business and recommend the right package, no obligation.</p>
+    <a href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+the+%24499+Full+Treatment+package+for+my+salon.&type=phone_number&app_absent=0" class="btn btn-outline-light">Contact Us</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-top">
+    <div class="footer-brand">
+          <a class="brand footer-logo-wrap" href="#top">
+        <img class="brand-logo" src="ChatGPT Image Aug 17, 2026, 01_29_35 AM.png" alt="">
+      </a>
+      <p>A small studio designing and building websites, stores, and web apps that are fast, clear, and built to hand off.</p>
+    </div>
+
+
+
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+  
+
+     <div class="footer-col">
+      <h5>Policies</h5>
+      <ul>
+        <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="shipping-cancellation-refund-policy.html">Shipping, Cancellation &amp; Refunds</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="ownership-statement.html">Ownership Statement</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Novatech Solution. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  (function(){
+    var burger = document.getElementById('burger');
+    var panel = document.getElementById('mobilePanel');
+    if (!burger || !panel) return;
+
+    function closeMenu(){
+      panel.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu(){
+      var isOpen = panel.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    burger.addEventListener('click', toggleMenu);
+
+    // Close the menu after tapping a link, or if the viewport grows past the mobile breakpoint
+    panel.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth > 880) closeMenu();
+    });
+  })();
+
+  // Header shadow once the page scrolls
+  (function(){
+    var header = document.querySelector('header');
+    if (!header) return;
+    var onScroll = function(){
+      if (window.scrollY > 8) header.classList.add('nt-scrolled');
+      else header.classList.remove('nt-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // Scroll reveal
+  (function(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealEls = document.querySelectorAll('.reveal');
+    if (!revealEls.length) return;
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+<a href="https://api.whatsapp.com/send/?phone=18084610140&text=Hi%21+I%27m+interested+in+working+with+NovaTech+Solution.&type=phone_number&app_absent=0" class="whatsapp-float" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 4C9.4 4 4 9.4 4 16c0 2.4.7 4.6 1.9 6.5L4 28l5.7-1.9C11.5 27.3 13.7 28 16 28c6.6 0 12-5.4 12-12S22.6 4 16 4z" fill="#fff"/>
+    <path d="M16 4C9.4 4 4 9.4 4 16c0 2.4.7 4.6 1.9 6.5L4 28l5.7-1.9C11.5 27.3 13.7 28 16 28c6.6 0 12-5.4 12-12S22.6 4 16 4zm0 22c-2 0-3.9-.6-5.5-1.6l-.4-.2-4 1.1 1.1-3.9-.3-.4C5.8 19.4 5 17.7 5 16c0-6.1 5-11 11-11s11 4.9 11 11-5 11-11 11z" fill="#25D366"/>
+    <path d="M22 18.3c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2-.3.2-.6.1c-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.7.7.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z" fill="#fff"/>
+  </svg>
+</a>
+
+</body>
+</html>
